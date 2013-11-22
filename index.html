@@ -80,11 +80,12 @@
         
     </article><!-- /article -->
     <footer data-role="footer" class="ui-bar" data-theme="c">
-            <h1>I'm a Footer</h1>
+            <a href="javascript:refreshPage();">page</a>
         </footer><!-- /footer -->
         <script type="text/javascript">
 
  function doResize() {
+        getEmployeeList();
         var winhight = $.mobile.getScreenHeight();
         var headhight = $('[data-role="header"]').first().outerHeight();
         var foothight = $('[data-role="footer"]').first().outerHeight();

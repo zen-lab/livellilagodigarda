@@ -1,21 +1,9 @@
 
-console.firebug=true;
-
-var serviceURL = "http://www.ipsum.biz/livellilagogarda/";
-var livelli;
-
-$('#paginainiziale').bind('pageinit', function(event) {
-
-	getEmployeeList();
-});
-
-    getEmployeeList();	
 function getEmployeeList() {
-   
+         var serviceURL = "http://www.ipsum.biz/livellilagogarda/";
 		$.getJSON(serviceURL + 'service.php?last=true', function(data) {
 		//$('#livello').remove();
 		//console.firebug=true;
-        console.log(data);
         $('#livello').html(data.livello);
         
         
@@ -30,5 +18,17 @@ function getEmployeeList() {
      
     });
 };
+function refreshPage() {
+  $.mobile.changePage(
+    window.location.href,
+    {
+      allowSamePageTransition : true,
+      transition              : 'fade',
+      showLoadMsg             : false,
+      reloadPage              : true
+    }
+  );
+}
+
 
  
