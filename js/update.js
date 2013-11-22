@@ -1,21 +1,17 @@
 
-function getEmployeeList() {
-         var serviceURL = "http://www.ipsum.biz/livellilagogarda/";
+function update() {
+    var serviceURL = "http://www.ipsum.biz/livellilagogarda/";
 		$.getJSON(serviceURL + 'service.php?last=true', function(data) {
-		//$('#livello').remove();
-		//console.firebug=true;
+		
         $('#livello').html(data.livello);
-        
-        
         $('#dataMis').html(data.misurazione);
-        
-        
-        
-         $('.water').stop().animate({height: '75%'}, 700,'easeOutBounce', function() {
+         var misura = parseInt(data.livello) + 5;
+        $('.water').stop().animate({height: (misura * 0.487404 ) + '%'}, 700,'easeOutBounce', function() {
          altezza = $('.water').height();
+         
          $('.pescatore img').animate({bottom: (altezza - 3 )+'px'} , 1000,'easeOutBounce' );
        });
-     
+        
     });
 };
 function refreshPage() {
@@ -23,7 +19,7 @@ function refreshPage() {
     window.location.href,
     {
       allowSamePageTransition : true,
-      transition              : 'fade',
+      transition              : 'slide',
       showLoadMsg             : false,
       reloadPage              : true
     }

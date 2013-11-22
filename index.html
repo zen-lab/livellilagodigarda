@@ -40,16 +40,18 @@
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
     }
- 
+  [data-role="footer"] {
+      text-align: center;
+  }
  .pescatore img {
      vertical-align: bottom;
      position: absolute;
      bottom: 755px;
-     
  }
  .misure {
      text-align: center;
  }
+ 
 </style>
 </head>
     
@@ -74,18 +76,18 @@
         <div class='all' >
             <div class="glass">
                 
-                <div class="water"><div class='pescatore' align='center'><img src="pics/pescatore.png" width=""></div></div>
+                <div class="water"><div class='pescatore' align='center' ><img src="pics/pescatore.png" /></div></div>
             </div>
         </div>
         
     </article><!-- /article -->
     <footer data-role="footer" class="ui-bar" data-theme="c">
-            <a href="javascript:refreshPage();">page</a>
+            <a href="javascript:refreshPage();">Aggiorna</a>
         </footer><!-- /footer -->
         <script type="text/javascript">
 
  function doResize() {
-        getEmployeeList();
+        console.log("call");
         var winhight = $.mobile.getScreenHeight();
         var headhight = $('[data-role="header"]').first().outerHeight();
         var foothight = $('[data-role="footer"]').first().outerHeight();
@@ -96,25 +98,12 @@
         $('.glass').css('min-height',newhight - foothight - misure - headhight - 60 + 'px');
         largezza = $('.water').width();
         $('.pescatore img').css('width', largezza / 2 + 'px');
-        altezza = $('.water').height();
-            //$('.pescatore img').css('bottom', (altezza )+'px');
-        }
- function doResize2() {
-         var winhight = $.mobile.getScreenHeight();
-        var headhight = $('[data-role="header"]').first().outerHeight();
-        var foothight = $('[data-role="footer"]').first().outerHeight();
-        var misure = $('.misure').first().outerHeight();
-        var $content=$('[data-role="content"]');
-        newhight = winhight - headhight - foothight;
-        $content.css('min-height',newhight + 'px');
-        $('.glass').css('min-height',newhight - foothight - misure - headhight - 60 + 'px');
-        largezza = $('.water').width();
-        $('.pescatore img').css('width', largezza / 2 + 'px');
-        altezza = $('.water').height();
-            $('.pescatore img').css('bottom', (altezza - 3 )+'px');
+        update();
+       
         }
         $(document).bind('pageshow',doResize);
-        $(window).bind('resize orientationchange',doResize2);
+        $(document).bind('pagechange',doResize);
+        //$(window).bind('resize orientationchange',doResize2);
  </script>
 
 
