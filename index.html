@@ -59,12 +59,14 @@
         
 <!-- Home -->
 <section data-role="page" id="paginainiziale">
-     <header data-theme="c" data-role="header" data-position="fixed" data-inline="true">       
+     <header  data-role="header" class="ui-bar" >       
         <h3 id="titolo">
             Livelli Lago di Garda
         </h3>
+        <a href="#about" class="ui-btn-right" data-icon="info"  data-transition="turn" >About</a>
+
         </header><!-- /header --> 
-    <article data-role="content" data-theme="c" >
+    <article data-role="content" >
             <div class='misure'>
             <h2 id='livello'>
                 Livello
@@ -81,9 +83,31 @@
         </div>
         
     </article><!-- /article -->
-    <footer data-role="footer" class="ui-bar" data-theme="c">
+    <footer data-role="footer" class="ui-bar" >
             <a href="javascript:refreshPage();">Aggiorna</a>
         </footer><!-- /footer -->
+</section>
+
+
+
+
+<section data-role="page" id="about" >
+     <header data-role="header" class="ui-bar" >       
+        <h3 id="titolo">
+            Livelli Lago di Garda
+        </h3>
+        <a data-role="button" href="#paginainiziale" data-transition="turn" data-mini="true"
+                data-inline="true">Back</a>
+        </header><!-- /header --> 
+    <article data-role="content" data-theme="c" >
+           Ciao Bello
+        
+    </article><!-- /article -->
+    <footer data-role="footer" class="ui-bar" >
+          
+        </footer><!-- /footer -->
+</section>
+
         <script type="text/javascript">
 
  function doResize() {
